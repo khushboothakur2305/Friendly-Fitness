@@ -1,36 +1,57 @@
 <section fxLayoutAlign="center">
   <mat-card>
     <mat-card-title style="text-align: center;">Sign-Up </mat-card-title>
-    <br><br>
-  <form
-    #form="ngForm"
-    (ngSubmit)="onsubmit(form)"
-    fxLayout="column"
-    fxLayoutAlign="center center"
-  >
-    <mat-form-field>
-      <input
-        type="email"
-        matInput
-        placeholder=" Enter Your E-mail"
-        name="email"
-        ngModel
-        required
-      />
-    </mat-form-field>
-    <mat-form-field >
-      <input
-        type="password"
-        matInput
-        placeholder=" Enter Your password"
-        name="password"
-        ngModel
-        required
-        minlength="6"
-      />
-      <mat-hint>should be atleast 6 character long</mat-hint>
-    </mat-form-field><br><br>
-    <button type="submit" mat-raised-button color="primary">Submit</button>
-  </form>
+    <br /><br />
+    <form
+      #form="ngForm"
+      (ngSubmit)="onsubmit(form)"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <mat-form-field>
+        <input
+          type="email"
+          matInput
+          placeholder=" Enter Your E-mail"
+          name="email"
+          ngModel
+          required
+          #emailinput="ngModel"
+        />
+        <mat-error *ngIf="emailinput.hasError('required')"
+          >Field must not be empty</mat-error
+        >
+        <mat-error *ngIf="!emailinput.hasError('required')"
+          >Email is invalid</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field hintLabel="should be atleast 6 character long">
+        <input
+          type="password"
+          matInput
+          placeholder=" Enter Your password"
+          name="password"
+          ngModel
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <mat-hint align="end">{{ password.value?.length }}/6</mat-hint>
+        <mat-error>Field must not be empty</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Enter Your BirthDate"
+          [matDatepicker]="picker"
+          [max]="maxDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <br /><br />
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+    </form>
   </mat-card>
 </section>
