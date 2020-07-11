@@ -9,7 +9,7 @@ import { NewTrainingComponent } from './auth/training/new-training/new-training.
 import { PastTrainingComponent } from './auth/training/past-training/past-training.component';
 
 const routes: Routes = [
-  {path:'',component:WelcomeComponent},
+  {path:'welcome',component:WelcomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'training',component:TrainingComponent},
