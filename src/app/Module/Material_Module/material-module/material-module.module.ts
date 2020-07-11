@@ -9,9 +9,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   imports: [
     MatFormFieldModule,
@@ -25,6 +25,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule,
@@ -38,6 +40,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatTabsModule,
+    MatSelectModule
   ],
 })
 export class MaterialModuleModule {}
