@@ -7,19 +7,18 @@ import { TrainingComponent } from './auth/training/training.component';
 import { CurrentTrainingComponent } from './auth/training/current-training/current-training.component';
 import { NewTrainingComponent } from './auth/training/new-training/new-training.component';
 import { PastTrainingComponent } from './auth/training/past-training/past-training.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {path:'welcome',component:WelcomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'training',component:TrainingComponent},
-  // {path:'current-training',component:CurrentTrainingComponent},
-  // {path:'new-training',component:NewTrainingComponent},
-  // {path:'past-training',component:PastTrainingComponent},
+  {path:'training',component:TrainingComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard],
 })
 export class AppRoutingModule { }
