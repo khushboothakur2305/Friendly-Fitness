@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "database-e88c6": {
+      "hosting": {
+        "Friendly-Fitness": [
+          "database-e88c6"
+        ]
+      }
+    }
+  }
+}

@@ -123,6 +123,10 @@
               "devServerTarget": "Friendly-Fitness:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
