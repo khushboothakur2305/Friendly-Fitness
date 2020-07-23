@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     });
   }
   onlogin(form: NgForm) {
-    this.AuthService.registeruser({
+    this.AuthService.Login({
       email:form.value.email,
       password:form.value.password
     })

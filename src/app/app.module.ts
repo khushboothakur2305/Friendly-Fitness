@@ -8,7 +8,7 @@ import { MaterialModuleModule } from './Module/Material_Module/material-module/m
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -44,7 +44,8 @@ import { TrainingService } from './auth/training/training.service';
     MaterialModuleModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
