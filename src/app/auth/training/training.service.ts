@@ -30,6 +30,9 @@ export class TrainingService {
       .subscribe((exercises: Exercise[]) => {
         this.availabeExercises = exercises;
         this.exercisesChanged.next([...this.availabeExercises]);
+      },error=>{
+        console.log(error);
+
       });
   }
   startexercise(selectedId: string) {
