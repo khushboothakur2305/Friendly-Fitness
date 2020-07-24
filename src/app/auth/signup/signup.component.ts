@@ -9,26 +9,30 @@ import { Subscription } from 'rxjs';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements OnInit ,OnDestroy{
+export class SignupComponent implements OnInit, OnDestroy {
   maxDate;
-  isLoading=false;
-  LoadingSubs:Subscription;
-  constructor(private AuthService : AuthService,private uiService:UiService) {}
+  isLoading = false;
+  LoadingSubs: Subscription;
+  constructor(private AuthService: AuthService, private uiService: UiService) {}
 
   ngOnInit(): void {
-    this.LoadingSubs=this.uiService.loadingStateChanged.subscribe(isLoading=>{
-      this.isLoading=isLoading;
-    });
+    this.LoadingSubs = this.uiService.loadingStateChanged.subscribe(
+      (isLoading) => {
+        this.isLoading = isLoading;
+      }
+    );
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 14);
   }
   onsubmit(form: NgForm) {
     this.AuthService.registeruser({
-      email:form.value.email,
-      password:form.value.password
-    })
+      email: form.value.email,
+      password: form.value.password,
+    });
   }
-  ngOnDestroy(){
-    this.LoadingSubs.unsubscribe();
+  ngOnDestroy() {
+    if (this.LoadingSubs) {
+      this.LoadingSubs.unsubscribe();
+    }
   }
 }

@@ -9,30 +9,32 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit ,OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
-  isLoading=false;
-  LoadingSubs:Subscription;
-  constructor(private AuthService: AuthService,private uiService:UiService) {}
+  isLoading = false;
+  LoadingSubs: Subscription;
+  constructor(private AuthService: AuthService, private uiService: UiService) {}
 
   ngOnInit() {
-    this.LoadingSubs=this.uiService.loadingStateChanged.subscribe(isLoading=>{
-      this.isLoading=isLoading;
-    });
+    this.LoadingSubs = this.uiService.loadingStateChanged.subscribe(
+      (isLoading) => {
+        this.isLoading = isLoading;
+      }
+    );
     this.loginForm = new FormGroup({
       email: new FormControl('', {
         validators: [Validators.required, Validators.email],
       }),
-      password: new FormControl('', { validators: [Validators.required] })
+      password: new FormControl('', { validators: [Validators.required] }),
     });
   }
   onlogin(form: NgForm) {
     this.AuthService.Login({
-      email:form.value.email,
-      password:form.value.password
-    })
+      email: form.value.email,
+      password: form.value.password,
+    });
   }
-  ngOnDestroy(){
-    this.LoadingSubs.unsubscribe();
+  ngOnDestroy() {
+      this.LoadingSubs.unsubscribe();
   }
 }

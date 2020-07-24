@@ -21,7 +21,7 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.LoadingSubs = this.uiService.loadingStateChanged.subscribe(
-      isLoading => {
+      (isLoading) => {
         this.isLoading = isLoading;
       }
     );
@@ -40,6 +40,7 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
     this.trainingService.startexercise(f.value.exercise);
   }
   ngOnDestroy() {
-    this.exerciseSubscription.unsubscribe();
+      this.exerciseSubscription.unsubscribe();
+      this.LoadingSubs.unsubscribe();
   }
 }
