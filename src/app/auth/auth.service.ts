@@ -1,5 +1,4 @@
 import { Subject } from 'rxjs';
-import { User } from './user.model';
 import { AuthData } from './auth-data.model';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
@@ -29,9 +28,7 @@ export class AuthService {
       })
       .catch((error) => {
         this.uiService.loadingStateChanged.next(false);
-        this.snackBar.open(error.message, null, {
-          duration: 3000,
-        });
+        this.uiService.showSnackbar(error.message, null, 3000);
       });
   }
   Login(authData: AuthData) {
@@ -44,9 +41,7 @@ export class AuthService {
       })
       .catch((error) => {
         this.uiService.loadingStateChanged.next(false);
-        this.snackBar.open(error.message, null, {
-          duration: 3000,
-        });
+        this.uiService.showSnackbar(error.message, null, 3000);
       });
   }
   logout() {
