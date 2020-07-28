@@ -68,38 +68,66 @@
     fxLayout
     fxLayoutAlign="center center"
     fxLayoutGap="100px"
-    style="padding-top: 200px; background-color: rgb(199, 229, 247);"
+    style="
+      padding-top: 200px;
+      background-color: rgb(199, 229, 247);
+      padding-bottom: 60px;
+    "
   >
-  <section>
-    <img
-      style="border-radius: 50%; border: 10px solid black;"
-      src="assets\Images\Home\girl.jpg"
-    /><br /><br /><br />
-  </section>
+    <section>
+      <img
+        style="width: 400px; border-radius: 50%; border: 10px solid black;"
+        src="assets\Images\Home\girl1.jpg"
+      /><br /><br /><br />
+    </section>
     <section style="text-align: center;">
       <p style="font-size: 40px;">Why Choose Us !!!</p>
       <br />
       <p style="font-size: 25px;">Our Features</p>
       <p style="font-size: 20px; line-height: 30px;">
         <br />
-        Friendly Fitness is a single page web application using Angular, Angular
-        Material,<br />
-        Angularfire (+ Firebase with Firestore) and NgRx Sign up for free and<br />
-        attend home fitness sessions. You can also select a particular
-        exercise<br />
-        and perform it. Also, you can see your past training, calories
-        burned,<br />
-        duration of your workout, and sort them accordingly.<br />
-        You can also see all your past training sessions .<br />
-        It is very easy to use and can access this web anywhere you want !!!<br />
-        Join Now For Free!!!!
       </p>
+      <section fxLayout fxLayoutGap="20px">
+        <section>
+          <img class="icon" src="assets\Images\Home\time.png" /><br />
+          <h2>24/7 Service</h2>
+        </section>
+        <section>
+          <img class="icon" src="assets\Images\Home\cost.jpg" /><br />
+          <h2>Cost Free</h2>
+        </section>
+        <section>
+          <img class="icon" src="assets\Images\Home\access.png" /><br />
+          <h2>Easy Access</h2>
+        </section>
+      </section>
+      <br />
       <button class="btn" mat-raised-button color="warn">
         <a class="a" href="/login"> Join Now</a>
       </button>
     </section>
-
-    <section class="cut1"></section>
+    <section style="background-color: black;" class="cut2"></section>
   </div>
-
+  <div
+    fxLayout
+    fxLayoutAlign="center center"
+    fxLayoutGap="800px"
+    style="background-color: black;"
+  >
+    <section fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px">
+      <button class="btn" mat-raised-button color="warn">
+        <a class="a" href="/login"> Login Now</a>
+      </button>
+      <button class="btn" mat-raised-button color="warn">
+        <a class="a" href="/signup">Signup Now</a>
+      </button>
+    </section>
+    <section>
+      <a class="a" href="/welcome">
+        <img
+          style="width: 250px; padding-top: 25px;"
+          src="assets\Images\Home\logo.jpg"
+      /></a>
+    </section>
+  </div>
 </div>

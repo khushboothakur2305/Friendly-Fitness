@@ -25,16 +25,16 @@
   transform-origin: center top;
   transform: rotate(-3deg);
 }
-// .cut2 {
-//   background:black;
-//   position: absolute;
-//   top: 1480px;
-//   left: -10px;
-//   width: 104%;
-//   height: 130px;
-//   transform-origin: center top;
-//   transform: rotate(3deg);
-// }
+ .cut2 {
+   background:black;
+   position: absolute;
+   top: 2220px;
+   left: -10px;
+   width: 104%;
+   height: 130px;
+   transform-origin: center top;
+   transform: rotate(-3deg);
+ }
 .container {
   position: relative;
   text-align: center;
@@ -73,4 +73,10 @@ mat-card-title {
   text-align: center;
   font-size: 30px;
   line-height: 35px;
+}
+.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid white;
 }
