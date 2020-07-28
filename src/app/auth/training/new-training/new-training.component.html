@@ -1,26 +1,50 @@
-<div class="container" fxLayoutAlign="center center">
+<div class="container" fxLayoutAlign="center center" fxHide.lt-md>
   <img class="image" src="\assets\Images\Home\back1.jpg" />
   <div class="centered">
-<section class="new-training">
-  <form (ngSubmit)="onStartTraining(f)" #f="ngForm">
-    <mat-card>
-      <mat-card-title fxLayoutAlign="center">Time to start a workout!</mat-card-title>
-      <mat-card-content fxLayoutAlign="center">
-        <mat-form-field  *ngIf="!isLoading && exercises">
-          <mat-select placeholder="Choose Exercise" ngModel name="exercise" required>
-            <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">
-              {{ exercise.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-spinner *ngIf="isLoading"></mat-spinner>
-      </mat-card-content>
-      <mat-card-actions fxLayoutAlign="center" *ngIf="!isLoading">
-        <button class="btn" *ngIf="exercises" type="submit"  [disabled]="f.invalid">Start</button>
-        <button class="btn" *ngIf="!exercises" type="submit"  (click)="fetchEcercises()">Fetch Again</button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
-</section>
-</div>
+    <section class="new-training">
+      <form (ngSubmit)="onStartTraining(f)" #f="ngForm">
+        <mat-card>
+          <mat-card-title fxLayoutAlign="center"
+            >Time to start a workout!</mat-card-title
+          >
+          <mat-card-content fxLayoutAlign="center">
+            <mat-form-field *ngIf="!isLoading && exercises">
+              <mat-select
+                placeholder="Choose Exercise"
+                ngModel
+                name="exercise"
+                required
+              >
+                <mat-option
+                  *ngFor="let exercise of exercises"
+                  [value]="exercise.id"
+                >
+                  {{ exercise.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+          </mat-card-content>
+          <mat-card-actions fxLayoutAlign="center" *ngIf="!isLoading">
+            <button
+              class="btn"
+              *ngIf="exercises"
+              type="submit"
+              [disabled]="f.invalid"
+            >
+              Start
+            </button>
+            <button
+              class="btn"
+              *ngIf="!exercises"
+              type="submit"
+              (click)="fetchEcercises()"
+            >
+              Fetch Again
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </section>
+  </div>
 </div>

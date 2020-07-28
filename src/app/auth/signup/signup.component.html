@@ -1,75 +1,94 @@
-<section fxLayoutAlign="center">
-  <mat-card>
-    <mat-card-title style="text-align: center;">Sign-Up </mat-card-title>
-    <br /><br />
-    <form
-      #form="ngForm"
-      (ngSubmit)="onsubmit(form)"
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      fxLayoutGap="20px"
-    >
-      <mat-form-field>
-        <input
-          type="email"
-          matInput
-          placeholder=" Enter Your E-mail"
-          name="email"
-          ngModel
-          required
-          #emailinput="ngModel"
-        />
-        <mat-error *ngIf="emailinput.hasError('required')"
-          >Field must not be empty</mat-error
-        >
-        <mat-error *ngIf="!emailinput.hasError('required')"
-          >Email is invalid</mat-error
-        >
-      </mat-form-field>
-      <mat-form-field hintLabel="should be atleast 6 character long">
-        <input
-          type="password"
-          matInput
-          placeholder=" Enter Your password"
-          name="password"
-          ngModel
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <mat-hint align="end">{{ password.value?.length }}/6</mat-hint>
-        <mat-error>Field must not be empty</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Enter Your BirthDate"
-          [matDatepicker]="picker"
-          [max]="maxDate"
-          name="bdate"
-          ngModel
-          required
-        />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+<div class="container" fxHide.lt-md>
+<div style="padding-top: 30px;" fxLayoutAlign="center" fxLayout>
+  <mat-card class="card">
+    <div fxLayout>
+      <section>
+        <img class="image" src="/assets/Images/Home/register.png" />
+      </section>
+      <section fxLayoutAlign="center">
+        <div style="padding-top: 30px;" class="form">
+          <mat-card>
+            <mat-card-title style="text-align: center;"
+              >Sign-Up
+            </mat-card-title>
+            <br /><br />
+            <form
+              #form="ngForm"
+              (ngSubmit)="onsubmit(form)"
+              fxLayout="column"
+              fxLayoutAlign="center center"
+              fxLayoutGap="20px"
+            >
+              <mat-form-field>
+                <input
+                  type="email"
+                  matInput
+                  placeholder=" Enter Your E-mail"
+                  name="email"
+                  ngModel
+                  required
+                  #emailinput="ngModel"
+                />
+                <mat-error *ngIf="emailinput.hasError('required')"
+                  >Field must not be empty</mat-error
+                >
+                <mat-error *ngIf="!emailinput.hasError('required')"
+                  >Email is invalid</mat-error
+                >
+              </mat-form-field>
+              <mat-form-field hintLabel="should be atleast 6 character long">
+                <input
+                  type="password"
+                  matInput
+                  placeholder=" Enter Your password"
+                  name="password"
+                  ngModel
+                  required
+                  minlength="6"
+                  #password="ngModel"
+                />
+                <mat-hint align="end">{{ password.value?.length }}/6</mat-hint>
+                <mat-error>Field must not be empty</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Enter Your BirthDate"
+                  [matDatepicker]="picker"
+                  [max]="maxDate"
+                  name="bdate"
+                  ngModel
+                  required
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
 
-      <mat-checkbox
-        ngModel
-        name="agreed"
-        required
-        labelPosition="before"
-        color="primary"
-        >Agreed to terms and condition</mat-checkbox
-      >
-      <button
-        type="submit"
-        mat-raised-button
-        color="primary"
-        [disabled]="form.invalid"
-      >
-        Submit
-      </button>
-    </form>
+              <mat-checkbox
+                ngModel
+                name="agreed"
+                required
+                labelPosition="before"
+                color="primary"
+                >Agreed to terms and condition</mat-checkbox
+              >
+              <button
+                type="submit"
+                mat-raised-button
+                color="primary"
+                [disabled]="form.invalid"
+              >
+                Submit
+              </button>
+            </form>
+          </mat-card>
+        </div>
+      </section>
+    </div>
   </mat-card>
-</section>
+</div>
+<br>
+</div>
