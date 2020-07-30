@@ -37,6 +37,8 @@ export class AuthService {
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then((result) => {
         this.uiService.loadingStateChanged.next(false);
+        console.log(authData.email);
+        this.trainingService.setActiveUser(authData.email);
         this.authSuccessfully();
       })
       .catch((error) => {

@@ -12,8 +12,16 @@ export class TrainingService {
   private fbsub: Subscription[] = [];
   private availabeExercises: Exercise[] = [];
   private runningexercise: Exercise;
+  private activeUser: string;
 
   constructor(private db: AngularFirestore, private uiService: UiService) {}
+  setActiveUser(user:string) {
+    this.activeUser=user;
+  }
+
+  getActiveUser() {
+    return this.activeUser;
+  }
 
   fetchAvailableExercises() {
     this.uiService.loadingStateChanged.next(true);
@@ -60,6 +68,7 @@ export class TrainingService {
       ...this.runningexercise,
       date: new Date(),
       state: 'completed',
+      userEmail:this.activeUser,
     });
     this.runningexercise = null;
     this.exerciseChanged.next(null);
@@ -71,6 +80,7 @@ export class TrainingService {
       caloriesburnt: this.runningexercise.caloriesburnt * (progress / 100),
       date: new Date(),
       state: 'cancelled',
+      userEmail:this.activeUser,
     });
     this.runningexercise = null;
     this.exerciseChanged.next(null);
@@ -81,7 +91,7 @@ export class TrainingService {
   fetchCompletedorCancelledExercise() {
     this.fbsub.push(
       this.db
-        .collection('FinishedExercises')
+        .collection('FinishedExercises',ref =>ref.where("userEmail","==",`${this.activeUser}`))
         .valueChanges()
         .subscribe((exercises: Exercise[]) => {
           this.finishedExercisesChanged.next(exercises);
@@ -91,6 +101,7 @@ export class TrainingService {
   cancelSubscription() {
     this.fbsub.forEach((sub) => sub.unsubscribe());
   }
+
   private addDataToDatabase(exercise: Exercise) {
     this.db.collection('FinishedExercises').add(exercise);
   }

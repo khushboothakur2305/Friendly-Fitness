@@ -5,4 +5,5 @@ export interface Exercise{
   caloriesburnt:number;
   date?:Date;
   state?:'completed' | 'cancelled'|null;
+  userEmail?:string;
 }
